@@ -1,0 +1,22 @@
+﻿@model Blog_IT.Models.ReportPost
+
+@{
+    ViewBag.Title = "Xóa đơn báo sai phạm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<hr />
+<div class="text-center">
+    <h3>Bạn có chắc muốn xóa đơn này?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>&nbsp;</div>
+        <input type="hidden" name="page" value="@Request.QueryString["page"] " />
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger"><span class="fa fa-remove"></span> Xóa</button>
+            @Html.ActionLink("Về danh sách", "Index", new { page = Request.QueryString["page"]}, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

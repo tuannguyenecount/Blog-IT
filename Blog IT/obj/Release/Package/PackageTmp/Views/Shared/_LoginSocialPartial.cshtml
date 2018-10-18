@@ -1,0 +1,32 @@
+﻿@using Blog_IT.Models;
+@{ 
+    KhachHang khachHang = Session["khachhang"] as Blog_IT.Models.KhachHang;
+}
+
+@if (khachHang == null)
+{
+    <div>
+        <form action="@Url.Action("LoginWithGooglePlus", "LoginSocial")" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger"><i class="fa fa-google-plus"></i> Login with Google + </button>
+        </form>
+
+    </div>
+}
+else
+{
+    <ul style="list-style-type:none;">
+
+
+        <li class="pull-left">
+            <a href="#" ><img alt="@khachHang.ImageURL" class="img-circle pull-left" src="~/Photos/Users/@khachHang.ImageURL" width="40" height="40" /> @khachHang.Name</a>
+        </li>
+        <li class="pull-left" style="margin-left:20px">
+            <form action="@Url.Action("Logout", "LoginSocial")" method="post">
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-log-out"></i> Logout </button>
+            </form>
+        </li>
+    </ul>
+}

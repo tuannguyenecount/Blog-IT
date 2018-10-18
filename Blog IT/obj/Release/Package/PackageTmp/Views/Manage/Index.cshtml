@@ -1,0 +1,90 @@
+﻿@using Blog_IT.Models;
+@model IndexViewModel
+@{
+    ViewBag.Title = "Thông tin cá nhân";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    AspNetUser user = ViewBag.User as AspNetUser;
+}
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    @*<h4>Change your account settings</h4>*@
+    <hr />
+    <div class="col-md-4 text-center">
+        <img src="~/Photos/Users/@user.Image" width="150" height="150" class="img-circle" id="imageuser"  />
+        <h1>
+            @user.FullName
+        </h1>
+    </div>
+    <dl class="col-md-8">
+        <dt>@Html.DisplayNameFor(m=>user.FirstName):</dt>
+        <dd>
+            @Html.DisplayFor(m => user.FirstName)
+        </dd>
+        <dt>@Html.DisplayNameFor(m => user.LastName):</dt>
+        <dd>
+            @Html.DisplayFor(m => user.LastName)
+        </dd>
+        <dt>@Html.DisplayNameFor(m => user.Email):</dt>
+        <dd>
+            @user.Email
+        </dd>
+        <dt>@Html.DisplayNameFor(m => user.PhoneNumber):</dt>
+        <dd>
+            @Html.DisplayFor(m=>user.PhoneNumber)
+        </dd>
+        <dt>@Html.DisplayNameFor(m => user.Introduce):</dt>
+        <dd>
+            @Html.DisplayFor(m => user.Introduce)
+        </dd>
+        <dt>Mật khẩu:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Đổi mật khẩu", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Tạo mật khẩu", "SetPassword")
+            }
+            ]
+        </dd>
+
+
+        @*<dt>External Logins:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Manage", "ManageLogins") ]
+        </dd>*@
+
+        @*<dt>Two-Factor Authentication:</dt>
+        <dd>
+            <p>
+                There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication.
+            </p>*@
+            @*@if (Model.TwoFactor)
+                {
+                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Enabled
+                        <input type="submit" value="Disable" class="btn btn-link" />
+                        </text>
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Disabled
+                        <input type="submit" value="Enable" class="btn btn-link" />
+                        </text>
+                    }
+                }*@
+        @*</dd>*@
+    </dl>
+</div>

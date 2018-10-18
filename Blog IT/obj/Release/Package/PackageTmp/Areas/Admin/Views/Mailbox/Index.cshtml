@@ -1,0 +1,25 @@
+﻿@using GridMvc.Html;
+@model IEnumerable<Blog_IT.Models.Mailbox>
+
+@{
+    ViewBag.Title = "Danh sách hộp thư";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-12 bg-title bg-title-silver">
+    <h1>@ViewBag.Title  </h1>
+</div>
+<hr/>
+<div class="table-responsive" style="clear:both" id="mailboxes">
+    @Html.Grid(Model).Columns(columns =>
+{
+  
+    columns.Add(m => m.Name).Titled("Tên").Sortable(true);
+    columns.Add(m => m.Email).Titled("Email");
+    columns.Add(m => m.Message).Titled("Nội dung");
+    columns.Add(m => m.SendDate).Titled("Ngày gửi");
+    columns.Add().Titled("Trạng thái").Encoded(false).Sanitized(false).RenderValueAs(a => "<span>"+(a.Confirmed ? "Đã xác nhận":"Chưa xác nhận")+"</span>");
+    columns.Add().Encoded(false).Sanitized(false).RenderValueAs(m => Html.ActionLink(m.Confirmed ? "Bỏ xác nhận" : "Xác nhận", "ChangeConfirm", new { id = m.ID }, new { @class = (m.Confirmed == false  ? "label label-success" : "label label-warning") }).ToHtmlString());
+    columns.Add().Encoded(false).Sanitized(false).RenderValueAs(m => Html.ActionLink("Xóa", "Delete", new { id = m.ID }).ToHtmlString());
+}).WithPaging(20)
+</div>
+

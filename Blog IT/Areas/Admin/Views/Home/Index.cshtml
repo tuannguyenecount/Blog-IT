@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ của admin";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section scripts{
+    <script>
+        $(function () {
+            if($("#lst li").length  == 0 )
+            {
+                $("#lst").html("<li class='list-group-item well'> Không có thông báo nào gần đây.</li>");
+            }
+        });
+    </script>
+}
+
+<h1>Thông báo</h1>
+<hr/>
+<ul id="lst" class="list-group">
+    @if (ViewBag.CountPostNotShow > 0)
+    { 
+    <li class="list-group-item"> Hiện có <a href="@Url.Action("Index", "Post", new { area="Admin", show = false })"><span class="label label-danger">@ViewBag.CountPostNotShow</span></a> bài viết cần được chấp thuận.  </li>
+    }
+    @if (ViewBag.CountNewReportPosts > 0)
+    {
+        <li class="list-group-item">
+            Có <a href="@Url.Action("Index","ReportPost", new { area="Admin" })"><span class="label label-danger">@ViewBag.CountNewReportPosts</span></a> đơn báo sai phạm bài viết.
+        </li>
+    }
+ 
+    @if(ViewBag.UsersRegisterToDay.Count > 0)
+    {
+        foreach(var item in ViewBag.UsersRegisterToDay as List<Blog_IT.Models.AspNetUser>)
+        {
+            <li class="list-group-item">Thành viên <b>@item.FullName</b> với mail: <b><i>@item.Email</i></b> vừa đăng ký thành viên lúc @item.DateRegister hôm nay.</li>
+        }
+    }
+    @if (ViewBag.CountNewMailBoxes > 0)
+    {
+        <li class="list-group-item"> Có <a href="@Url.Action("Index", "Mailbox", new { area="Admin" })"><span class="label label-danger">@ViewBag.CountNewMailBoxes</span></a>  thư bạn cần xem.  </li>
+    }
+    
+</ul>
+

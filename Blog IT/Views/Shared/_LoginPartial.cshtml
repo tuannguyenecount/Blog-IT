@@ -1,0 +1,16 @@
+﻿@if (Request.IsAuthenticated)
+{
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style="display:none", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
+        }
+        
+            <li>
+                <a href="@Url.Action("Index", "Manage", new { area=""})" title="Vào trang quản trị website" ><span class="fa fa-user"></span>Trang Quản Trị</a>
+            </li>
+}
+else
+{
+     
+        @*<li><a href="@Url.Action("Login", "Account", new { returnUrl = Request.Url.PathAndQuery })" class="fa-sign-iny" id="loginlink"><span class="fa-sign-in"></span>Đăng nhập</a></li>*@
+}

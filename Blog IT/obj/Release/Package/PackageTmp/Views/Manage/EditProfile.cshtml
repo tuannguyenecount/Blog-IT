@@ -1,0 +1,58 @@
+﻿@model Blog_IT.Models.AspNetUser
+@{
+    ViewBag.Title = "Sửa thông tin";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <hr />
+    <div class="col-md-4 text-center">
+        <img src="~/Photos/Users/@Model.Image" width="150" height="150" class="img-circle" id="imageuser" />
+        <h1>
+            @Model.FullName
+        </h1>
+    </div>
+    <div class="col-md-8">
+        @using(Html.BeginForm())
+        { 
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new {@class="text-danger" })
+                <p>@Html.DisplayNameFor(m => Model.FirstName):</p>
+                <p>
+                    @Html.TextBoxFor(m => Model.FirstName, new { @class="form-control" })
+                </p>
+                <p>@Html.DisplayNameFor(m => Model.LastName):</p>
+                <p>
+                    @Html.TextBoxFor(m => Model.LastName, new {@class="form-control" })
+                </p>
+                <p>@Html.DisplayNameFor(m => Model.Email):</p>
+                <p>
+                    @Html.TextBoxFor(m => Model.Email, new {type="email" , @class="form-control"})
+                </p>
+                <p>@Html.DisplayNameFor(m => Model.PhoneNumber):</p>
+                <p>
+                    @Html.TextBoxFor(m => Model.PhoneNumber, new { @class="form-control"})
+                </p>
+                <p>@Html.DisplayNameFor(m => Model.Introduce):</p>
+                <p>
+                    @Html.TextAreaFor(m => Model.Introduce, new { @class="form-control"})
+                </p>
+                <p>
+                    &nbsp;
+                </p>
+                <p>
+                    <button type="submit" class="btn btn-primary btn-sm"><span class="fa fa-edit"></span> Sửa</button>
+                    <a href="@Url.Action("Index")" class="btn btn-default btn-sm">Hủy thao tác</a>
+                </p>
+           
+        }
+    </div>
+</div>
+
+

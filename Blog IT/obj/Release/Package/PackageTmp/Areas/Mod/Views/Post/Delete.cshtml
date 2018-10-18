@@ -1,0 +1,21 @@
+﻿@model Blog_IT.Models.Post
+
+@{
+    ViewBag.Title = "Xóa bài viết";
+    Layout = "~/Areas/Mod/Views/Shared/_ModLayout.cshtml";
+}
+
+<h1>@ViewBag.Title <i>@Model.Title</i></h1>
+<hr />
+<div class="text-center">
+    <h3>Bạn có chắc muốn xóa bài viết này?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>&nbsp;</div>
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger"><span class="fa fa-remove"></span> Xóa</button>
+            @Html.ActionLink("Về danh sách", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

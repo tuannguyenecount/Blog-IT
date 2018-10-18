@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Blog_IT.Models.Tag>
+@{
+    ViewBag.Title = "Tag của bài viết";
+    Layout = "~/Areas/Mod/Views/Shared/_ModLayout.cshtml";
+}
+<h1>Danh sách tags của bài viết <span class="text-info">"@ViewBag.TitleArticle"</span></h1>
+<div class="text-left">
+    <a class="btn btn-primary" href="@Url.Action("AddTags", new {id = ViewBag.PostID, page = ViewBag.Page})"> Thêm tag vào bài viết </a>
+</div>
+<hr />
+<ul class="list-group">
+    @foreach (var tag in Model)
+    {
+        <li class="list-group-item">
+            <span class="text-left"> @tag.Name </span>
+            <a style="float:right" class=" btn btn-default btn-xs" onclick="return confirm('Bạn có chắc muốn gỡ bỏ tag này khỏi bài viết?')" href="@Url.Action("DeleteTag", "Post", new { tagID = tag.TagID, postID = ViewBag.PostID, page = ViewBag.Page })"><span class="fa-remove"></span> Gỡ bỏ </a>
+        </li>
+    }
+</ul>
+<div class="text-left">
+    <a href="@Url.Action("Index", "Post", new { page = ViewBag.Page})" class="btn btn-default">Về danh sách bài viết</a>
+</div>
+
+

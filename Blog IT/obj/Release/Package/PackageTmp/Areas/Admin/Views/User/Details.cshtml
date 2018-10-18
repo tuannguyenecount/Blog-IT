@@ -1,0 +1,72 @@
+﻿@model Blog_IT.Models.AspNetUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section styles{
+    <style>
+        #info div[class='clearfix']{
+            margin: 10px 0;
+        }
+    </style>
+}
+<h2>Chi tiết thành viên</h2>
+<hr/>
+<div class="col-md-4 text-center">
+        <img src="~/Photos/Users/@Model.Image" width="150" class="img-circle" height="150" style="vertical-align:middle" />
+    <br/>
+    <h1>@Model.FullName</h1>
+</div>
+<div id="info" class="col-md-8">
+    <div class="clearfix">
+        <div class="text-right col-md-4">@Html.DisplayNameFor(model => model.FirstName):</div>
+        <div class="col-md-8 text-left"><b>@Html.DisplayFor(model => model.FirstName)</b></div>
+    </div>
+    <div class="clearfix">
+        <div class="text-right col-md-4">@Html.DisplayNameFor(model => model.LastName):</div>
+        <div class="col-md-8 text-left"><b>@Html.DisplayFor(model => model.LastName)</b></div>
+    </div>
+    <div class="clearfix">
+        <div class="text-right col-md-4">@Html.DisplayNameFor(model => model.Email):</div>
+        <div class="col-md-8 text-left"><b>@Model.Email</b></div>
+    </div>
+    <div class="clearfix">
+        <div class="text-right col-md-4">@Html.DisplayNameFor(model => model.PhoneNumber):</div>
+        <div class="col-md-8 text-left"><b>@Html.DisplayFor(model => model.PhoneNumber)</b></div>
+    </div>
+    <div class="clearfix">
+        <div class="text-right col-md-4">@Html.DisplayNameFor(model => model.EmailConfirmed): </div>
+        <div class="col-md-8 text-left">@(Model.EmailConfirmed ? "Đã xác thực":"Chưa xác thực")</div>
+    </div>
+    @if (Model.LockoutEndDateUtc.HasValue && Model.LockoutEndDateUtc.Value > DateTime.Now)
+    {
+        <div class="clearfix">
+            <div class="text-right col-md-4">Đang bị khóa: </div>
+            <div class="col-md-8 text-left"><input type="checkbox" checked="checked" readonly="readonly" /></div>
+        </div>
+        <div class="clearfix">
+            <div class="text-right col-md-4">Khóa đến ngày:</div>
+            <div class="col-md-8 text-left"><b>@Html.DisplayFor(model => model.LockoutEndDateUtc)</b></div>
+        </div>
+    }
+    <div class="clearfix">
+        <div class="text-right col-md-4">@Html.DisplayNameFor(model => model.Introduce):</div>
+        <div class="col-md-8 text-left"><b>@Html.DisplayFor(model => model.Introduce)</b></div>
+    </div>
+    <div class="clearfix">
+        <div class="text-right col-md-4">@Html.DisplayNameFor(model => model.DateRegister):</div>
+        <div class="col-md-8 text-left"><b>@Html.DisplayFor(model => model.DateRegister)</b></div>
+    </div>
+    <div class="clearfix">&nbsp;</div>
+    <div class="clearfix">
+        
+        <div class="col-md-8 col-md-offset-4 text-left">
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.Id }, new {@class="btn btn-primary btn-sm" })
+            @Html.ActionLink("Trở về", "Index", null, new { @class="btn btn-default btn-sm"})
+        
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,23 @@
+﻿@model Blog_IT.Models.AspNetUser
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Xóa thành viên</h1>
+<hr/>
+<div class="text-center">
+    <p>
+        Bạn có chắc muốn xóa thành viên @Model.FullName ?
+    </p>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Về danh sách", "Index", null, new {@class="btn btn-default" })
+        </div>
+    }
+</div>

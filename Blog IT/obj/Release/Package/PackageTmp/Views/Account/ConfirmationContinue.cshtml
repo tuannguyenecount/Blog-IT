@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Xác thực lần 2";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Xác thực lần 2</h1>
+<hr/>
+<p>
+    Vì lý do bảo mật. Bạn vui lòng nhập lại mật khẩu của mình để có thể tiếp tục thao tác trước đó.
+</p>
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("Url", (string)ViewBag.Url)
+    @Html.Hidden("UrlReferrer", (string)ViewBag.UrlReferrer)
+    @Html.ValidationMessage("", new {@class="text-danger" })
+    <input type="password" name="Password" placeholder="Nhập mật khẩu" />
+    <button type="submit" class="btn btn-blue">Xác nhận</button>
+    <a href="@ViewBag.UrlReferrer" class="btn btn-default">
+        Hủy
+    </a>
+}
+

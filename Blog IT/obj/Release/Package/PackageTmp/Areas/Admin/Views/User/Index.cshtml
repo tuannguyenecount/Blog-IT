@@ -1,0 +1,117 @@
+﻿@model IEnumerable<Blog_IT.Models.AspNetUser>
+
+@{
+    ViewBag.Title = "Quản trị thành viên";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section scripts{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(function () {
+            $("#valFirstName").keyup(function () {
+                $("#frmSearchFirstName").submit();
+            });
+            $("#valLastName").keyup(function () {
+                $("#frmSearchLastName").submit();
+            });
+            $("#valEmail").keyup(function () {
+                $("#frmSearchEmail").submit();
+            });
+        });
+    </script>
+}
+<div class="col-md-12 bg-title bg-title-turquoise">
+    <h1>@ViewBag.Title</h1>
+</div>
+<div class="padding-bottom-10 padding-bottom-10">
+    <a href="@Url.Action("Create")" class="btn btn-turquoise"><i class="fa-plus"></i> Thêm thành viên</a>
+</div>
+<div style="clear:both" class="table-responsive">
+    <table class="table">
+        <thead class="grid-header" style="background:#1bbc9d;color:#fff">
+            <tr>
+                <th class="text-center">
+                    Hình
+                </th>
+                <th>
+                    @Ajax.ActionLink("Họ đệm", "Sort", null, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "tbody", OnFailure = "alert('Lỗi ajax')", AllowCache = false }, new { @class="color-white"})
+                </th>
+                <th>
+                    @Ajax.ActionLink("Tên", "Sort", null, new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "tbody", OnFailure = "alert('Lỗi ajax')", AllowCache = false }, new { @class = "color-white" })
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+  
+            </tr>
+         
+        </thead>
+        <tr>
+            <td></td>
+            <td>
+                @using (Ajax.BeginForm("Search", "User", new AjaxOptions() { UpdateTargetId = "tbody", HttpMethod = "Get", InsertionMode = InsertionMode.Replace, OnFailure = "alert('Lỗi ajax')" }, new { id = "frmSearchFirstName", method = "get" }))
+                {
+                    <input type="hidden" name="searchBy" value="FirstName" />
+                    <input type="text" class="form-control" name="searchVal" id="valFirstName" placeholder="Tìm theo họ đệm" />
+                }
+            </td>
+            <td>
+                @using (Ajax.BeginForm("Search", "User", new AjaxOptions() { UpdateTargetId = "tbody", HttpMethod = "Get", InsertionMode = InsertionMode.Replace, OnFailure = "alert('Lỗi ajax')" }, new { id = "frmSearchLastName", method = "get" }))
+                {
+                    <input type="hidden" name="searchBy" value="LastName" />
+                    <input type="text" class="form-control" name="searchVal" id="valLastName" placeholder="Tìm theo tên" />
+                }
+            </td>
+            <td>
+                @using (Ajax.BeginForm("Search", "User", new AjaxOptions() { UpdateTargetId = "tbody", HttpMethod = "Get", InsertionMode = InsertionMode.Replace, OnFailure = "alert('Lỗi ajax')" }, new { id = "frmSearchEmail", method = "get" }))
+                {
+                    <input type="hidden" name="searchBy" value="Email" />
+                    <input type="text" class="form-control" name="searchVal" id="valEmail" placeholder="Nhập email" />
+                }
+            </td>
+        </tr>
+
+        <tbody id="tbody">
+           
+            @if(Model.Count() >  0)
+            { 
+                foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        <img src="~/Photos/Users/@item.Image" width="64" height="64" class="img-circle" />
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=>item.LastName)
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-center">
+                        <a class="btn btn-turquoise  btn-xs" href="@Url.Action("Details", new { id = item.Id })"><span class="fa-eye"></span> Chi tiết</a>
+                        |
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-xs" })
+                        |
+                        <a class="btn btn-default btn-xs" href="@Url.Action("Delete", new { id = item.Id })"><span class="fa fa-remove"></span>Xóa</a>
+                        |
+                        <a class="btn btn-turquoise btn-xs" href="@Url.Action("CustomRole", "User", new { id = item.Id, area = "Admin" })">Xem | Phân quyền</a>
+                    </td>
+                </tr>
+            }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4"><p>Không có bản ghi nào</p></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

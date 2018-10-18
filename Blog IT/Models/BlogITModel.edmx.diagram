@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="992962aca30c4aa7bbad4cf5326b6b2a" Name="Diagram1">
+        <EntityTypeShape EntityType="BlogITModel.AspNetRole" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogITModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogITModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogITModel.Mailbox" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogITModel.Tag" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogITModel.ReportPost" Width="1.5" PointX="7.5" PointY="16.5" />
+        <EntityTypeShape EntityType="BlogITModel.AspNetUser" Width="1.5" PointX="3" PointY="5.625" />
+        <AssociationConnector Association="BlogITModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="BlogITModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="BlogITModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="BlogITModel.Category" Width="1.5" PointX="0.75" PointY="13.875" />
+        <EntityTypeShape EntityType="BlogITModel.Post" Width="1.5" PointX="5.25" PointY="11.875" />
+        <EntityTypeShape EntityType="BlogITModel.SubCategory" Width="1.5" PointX="3" PointY="15.875" />
+        <AssociationConnector Association="BlogITModel.FK_dbo_Posts_dbo_AspNetUsers_UserID" />
+        <AssociationConnector Association="BlogITModel.FK_Posts_Category" />
+        <AssociationConnector Association="BlogITModel.FK_SubCategory_Category" />
+        <AssociationConnector Association="BlogITModel.FK_Posts_SubCategory" />
+        <AssociationConnector Association="BlogITModel.FK_ReportPost_Posts" />
+        <AssociationConnector Association="BlogITModel.Post_Tag" />
+        <EntityTypeShape EntityType="BlogITModel.MailSubscribe" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BlogITModel.Popup" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BlogITModel.KhachHang" Width="1.5" PointX="7.375" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

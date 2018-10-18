@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Blog_IT.Models.Post>
+<div class="col-md-3 margin-bottom-20">
+    <h3 class="margin-bottom-10">Bài viết xem nhiều</h3>
+    <ul style="list-style-type:none;list-style-position:outside; padding-left:0px; ">
+        @foreach (var item in Model)
+        {
+        <li style="border-bottom:2px solid rgba(0, 0, 0, 0.06); margin-bottom:10px;padding-bottom:10px; ">
+            <a href="@Url.Action("Detail","Post",new {  alias = item.Alias, area=""})">@item.Title</a>
+        </li>
+        }
+    </ul>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,113 @@
+﻿@model Blog_IT.Models.Post
+
+@{
+    ViewBag.Title = "Chi tiết bài viết " + Model.Title.ToLower();
+    Layout = "~/Areas/Mod/Views/Shared/_ModLayout.cshtml";
+}
+@section styles{
+    <style>
+        #Body {
+            overflow-x: auto;
+        }
+    </style>
+}
+
+<a href="@Url.Action("Edit", new { id = Model.PostID})" class="text-info">Sửa bài viết</a> |
+<a href="@Url.Action("Index", "Post", new { page = ViewBag.Page})" class="text-info"> Trở về</a>
+<h1>Chi tiết bài viết</h1>
+<hr />
+<div class="col-md-6">
+
+    <dl>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Introduce)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Introduce)
+        </dd>
+
+    </dl>
+</div>
+<div class="col-md-6">
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Alias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Views)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Views)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Show)
+        </dt>
+
+        <dd>
+            @(Model.Show == true ? "Đã hiển thị" : "Chờ chấp thuận")
+        </dd>
+    </dl>
+</div>
+<div class="col-md-12">
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+        <dd>
+            <button class="btn btn-default" data-toggle="collapse" data-target="#NoiDung">Xem nội dung</button>
+        </dd>
+        <dd class="collapse" id="NoiDung">
+
+            @Html.Raw(Model.Body)
+        </dd>        
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="~/Photos/Posts/@Model.Image" width="355" height="200" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageOpenGraph)
+        </dt>
+
+        <dd>
+            <img src="~/Photos/ImageOpenGraph/@Model.ImageOpenGraph" width="600" height="315" />
+        </dd>
+
+    </dl>
+</div>

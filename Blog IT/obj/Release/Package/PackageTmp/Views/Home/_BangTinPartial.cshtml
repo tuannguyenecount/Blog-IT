@@ -1,0 +1,16 @@
+﻿@model Blog_IT.Models.Popup
+
+<div id="result">
+
+</div>
+
+<script>
+    if(sessionStorage.getItem('showpopup') == null)
+    {
+        $.get('@Url.Action("LayNoiDungBangTin","Home",new { area=""})', function(result){
+            $("#result").html(result);
+        });
+       
+        sessionStorage.setItem('showpopup','complete');
+    }
+</script>

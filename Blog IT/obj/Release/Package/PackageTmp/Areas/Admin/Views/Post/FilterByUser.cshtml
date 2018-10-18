@@ -1,0 +1,95 @@
+﻿@using Microsoft.AspNet.Identity;
+@model IEnumerable<Blog_IT.Models.Post>
+           
+@{
+    ViewBag.Title = "Bài viết theo tác giả";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+}
+<a href="@Url.Action("Index", "Post", new { area = "Admin" })" class="text-info">Danh sách bài viết</a> |
+ <a href="@Url.Action("FilterByUser", "Post", new { area = "Admin", UserID = User.Identity.GetUserId() })" class="text-info">Bài viết của tôi</a> |
+
+<a href="#" class="text-info">Bài viết bị báo vi phạm</a>
+<div class="col-md-12 bg-title bg-title-blue">
+    <h1>Danh sách bài viết của tác giả @ViewBag.FullName  </h1>
+</div>
+<br />
+<hr />
+@if (Model.Count() > 0)
+{
+    <div class="table-responsive" id="tbl">
+        <table class="table table-bordered">
+            <thead class="grid-header" style="background:#40769a;color:#fff;">
+                <tr>
+                    <th>
+                        Hình bìa
+                    </th>
+                    <th class="text-center">
+                       ID
+                    </th>
+                    <th>
+                       Tiêu đề
+                    </th>
+                    <th>
+                        Lượt xem
+                    </th>
+                    <th>
+                        Trạng thái
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/Photos/Posts/@item.Image" width="90" height="70" />
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.PostID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Views)
+                        </td>
+                        <td>
+                            @if (item.Show)
+                            {
+                                <span class="text-success">Đã phê duyệt</span>
+                            }
+                            else
+                            {
+                                <span>Chưa phê duyệt</span>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <a href="@Url.Action("Details", new { id = item.PostID, page = ViewBag.Page})" class="btn btn-blue btn-xs"><span class="fa fa-eye"></span> Xem chi tiết</a>
+                            @if (item.Show == false)
+                            {
+                                <a class="btn btn-default btn-xs" href="@Url.Action("Demo","Post",new { alias = item.Alias, area=""})" target="_blank"><i class="fa fa-eye"></i> Xem thử</a>
+
+                            }
+                            <a href="@Url.Action("Edit", new { id = item.PostID, page = ViewBag.Page})" class="btn btn-default btn-xs"> <span class="fa fa-edit"></span>Sửa</a>
+                            <a href="@Url.Action("Delete", new { id = item.PostID})" class="btn btn-default btn-xs"><span class="fa fa-remove"></span> Xóa</a>
+                            <a href="@Url.Action("TagsOfPost", new { id = item.PostID, page = ViewBag.Page })" data-toggle="tooltip" title="Bài viết có @item.Tags.Count đi kèm" class="btn btn-default btn-xs"><span class="fa fa-tags"></span> Tags (@item.Tags.Count)</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="well">
+        Không có bài viết của tác giả này.
+    </div>
+}

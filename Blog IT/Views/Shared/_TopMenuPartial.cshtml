@@ -1,0 +1,36 @@
+﻿@using Blog_IT.Models;
+@model IEnumerable<Category>
+<div id="hornav" class="container no-padding">
+    <div class="row">
+        <div class="col-md-12 no-padding">
+            <div class="pull-left visible-lg">
+                <ul id="hornavmenu" class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Home", new { area=""})" class="fa-home">Trang Chủ</a>
+                    </li>
+                    @foreach(Category category in Model)
+                    {
+                        <li><a href="@Url.Action("PostByCategory","Post",new { area="", alias = category.Alias})" class="fa-files-o">@category.Name </a>
+                            @if(category.SubCategories.Count > 0)
+                            { 
+                            <ul>
+                                @foreach(SubCategory subCategory in category.SubCategories.OrderBy(m=>m.STT))
+                                { 
+                                <li><a href="@Url.Action("PostBySubCategory","Post",new { area="", alias = subCategory.Alias })" class="fa-file"> @subCategory.Name </a></li>  
+                                }
+                            </ul>
+                            }
+                        </li>
+                    }
+                    <li>
+                        <a href="@Url.Action("About", "Home", new {area = "" })" class="fa-user">Về Tác Giả</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Contact", "Home", new {area = "" })" class="fa-comment">Liên Hệ</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

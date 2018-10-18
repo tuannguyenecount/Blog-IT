@@ -1,0 +1,66 @@
+﻿@model Blog_IT.Models.Popup
+@{
+    ViewBag.Title = "Xem, sửa popup";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section styles{
+<link href="~/Content/jquery.niftymodals.min.css" rel="stylesheet" />    
+}
+@section scripts{
+<script src="~/Scripts/jquery.niftymodals.min.js"></script>
+<script>
+// this is important for IEs
+var polyfilter_scriptpath = 'lib/js/';
+</script>
+
+<script src="~/Scripts/cssParser.js"></script>
+<script src="~/Scripts/css-filters-polyfill.js"></script>
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckfinder/ckfinder.js"></script>
+<script>
+    $(function(){
+        $("#btnPreview").click(function(){
+            setTimeout(function () {
+                $("#modal").niftyModal();
+            }, @Model.Timeout);
+        });
+    });
+        CKEDITOR.replace('Content');
+        CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder")');
+</script>
+    }
+<h1>@ViewBag.Title</h1>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("",new {@class="text-danger" })
+    @Html.HiddenFor(m=>m.ID)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Content)
+        @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { id="Content", @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Show)
+        @Html.CheckBoxFor(model => model.Show, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Timeout)
+        @Html.TextBoxFor(model => model.Timeout, new { htmlAttributes = new { type="number", min = "0", step = "1",  @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Cập nhật</button> 
+        <button type="button" class="btn btn-blue" id="btnPreview">Preview</button>
+        <a class="btn btn-default" href="@Url.Action("Index","Home",new { area="Admin"})">Trở về</a>
+    </div>
+}
+
+<div class="md-container md-effect-11" id="modal">
+    <div class="md-content">
+        <h3>Bảng Tin</h3>
+        <div>
+            @Html.Raw(Model.Content)
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Blog_IT.Models.Post>
+@if (Model.Count() > 0)
+{
+<div class="recent-posts">
+    <h3>Bài Viết Xem Nhiều</h3>
+    <ul class="posts-list margin-top-10">
+        @foreach (var post in Model)
+        {
+            <li>
+                <div class="recent-post">
+                    <a href="">
+                        <img class="pull-left" src="~/Photos/ImageSmall/@post.Image" width="64" height="54" /></a>
+                    <a href="@Url.Action("Detail", "Post", new { alias = post.Alias })" class="posts-list-title">@post.Title</a>
+                    <br>
+                    <span class="recent-post-date">
+
+                        @post.DatePost.Day tháng @post.DatePost.Month, @post.DatePost.Year
+                    </span>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+        }
+    </ul>
+</div>
+}
+

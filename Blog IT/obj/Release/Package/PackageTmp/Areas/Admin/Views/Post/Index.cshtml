@@ -1,0 +1,142 @@
+﻿@using Microsoft.AspNet.Identity;
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Blog_IT.Models.Post>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section scripts{
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(function () {
+            $("#keyword").keyup(function () {
+                $("#frmSearch").submit();
+            });
+        });
+    </script>
+}
+<a href="@Url.Action("Index", "Post", new { area = "Admin" })" class="text-info">Danh sách bài viết</a> |
+<a href="@Url.Action("FilterByUser", "Post", new { area = "Admin", UserID = User.Identity.GetUserId() })" class="text-info">Bài viết của tôi</a> |
+<a href="@Url.Action("Index","ReportPost")" class="text-info">Bài viết bị báo vi phạm</a>
+<div class="col-md-12 bg-title bg-title-blue">
+    <h1 >@ViewBag.Title  </h1>
+</div>
+<br/>
+<div class="col-md-6">
+    @using (Ajax.BeginForm("Search", "Post", new AjaxOptions() { HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "tbody", LoadingElementId = "ajax-loader", AllowCache = false, LoadingElementDuration = 1000 }, new { id = "frmSearch" }))
+    {
+        <p>
+            Tìm kiếm:
+        </p>
+        <p>
+            <input type="text" class="form-control" name="keyword" placeholder="Nhập tiêu đề cần tìm" id="keyword" />
+        </p>
+    }
+</div>
+<div class="col-md-6">
+    <form action="@Url.Action("FilterByUser")" method="get" id="frmFilterByUser">
+        <p>Lọc bài viết theo tác giả:</p>
+        <select name="UserID" class="form-control" onchange="document.getElementById('frmFilterByUser').submit();">
+            @foreach (var user in ViewBag.UserID)
+            {
+                <option value="@user.Id">
+                    @user.FullName - @user.Email
+                </option>
+            }
+        </select>
+    </form>
+</div>
+<div class="clearfix">
+    &nbsp;
+</div>
+        <p >
+            <a href="@Url.Action("Create")" class="btn btn-blue btn-sm"><span class="fa fa-file"></span> Tạo mới</a>
+        </p>
+@if (Model.Count() > 0)
+{
+    <div class="table-responsive" id="tbl">
+        <table class="table table-bordered">
+            <thead class="grid-header" style="background:#40769a;color:#fff;">
+                <tr>
+                    <th>
+                        Hình bìa
+                    </th>
+                    <th class="text-center">
+                        @Ajax.ActionLink("ID", "Sort", new { sortName = "id", sortBy = "asc" }, new AjaxOptions() { HttpMethod = "Get", AllowCache = false, UpdateTargetId = "tbl", InsertionMode = InsertionMode.Replace, OnFailure = "alert('Xảy ra lỗi.')" }, new { @class = "color-white" })
+
+                    </th>
+                    <th>
+                        @Ajax.ActionLink("Tiêu đề", "Sort", new { sortName = "title", sortBy = "desc" }, new AjaxOptions() { HttpMethod = "Get", AllowCache = false, UpdateTargetId = "tbl", InsertionMode = InsertionMode.Replace, OnFailure = "alert('Xảy ra lỗi.')" }, new { @class = "color-white" })
+                    </th>
+                    <th>
+                        @Ajax.ActionLink("Lượt xem", "Sort", new { sortName = "view", sortBy = "desc" }, new AjaxOptions() { HttpMethod = "Get", AllowCache = false, UpdateTargetId = "tbl", InsertionMode = InsertionMode.Replace, OnFailure = "alert('Xảy ra lỗi.')" }, new { @class = "color-white" })
+                    </th>
+                    <th>
+                        @Ajax.ActionLink("Trạng thái", "Sort", new { sortName = "show", sortBy = "asc" }, new AjaxOptions() { HttpMethod = "Get", AllowCache = false, UpdateTargetId = "tbl", InsertionMode = InsertionMode.Replace, OnFailure = "alert('Xảy ra lỗi.')" }, new { @class = "color-white" })
+                    </th>
+                    <th>
+                        Tác giả
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/Photos/Posts/@item.Image" width="90" height="60" />
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.PostID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Views)
+                        </td>
+                        <td>
+                            @if (item.Show)
+                            {
+                                <span class="text-success">Đã phê duyệt</span>
+                            }
+                            else
+                            {
+                                <span>Chưa phê duyệt</span>
+                            }
+                        </td>
+                        <td data-toggle="tooltip" data-placement="bottom" title="Email: @(item.AspNetUser != null ? item.AspNetUser.Email: "")">
+                            @Html.DisplayFor(modelItem =>item.AspNetUser.FullName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <a href="@Url.Action("Details", new { id = item.PostID, page = ViewBag.Page})" class="btn btn-blue btn-xs"><span class="fa fa-eye"></span> Xem chi tiết</a> 
+                            @if (item.Show == false)
+                            {
+                                <a class="btn btn-default btn-xs" href="@Url.Action("Demo","Post",new { alias = item.Alias, area=""})" target="_blank"><i class="fa fa-eye"></i> Xem thử</a>
+
+                            }
+                            <a href="@Url.Action("Edit", new { id = item.PostID, page = ViewBag.Page})" class="btn btn-default btn-xs"> <span class="fa fa-edit"></span>Sửa</a> 
+                            <a href="@Url.Action("Delete", new { id = item.PostID})" class="btn btn-default btn-xs"><span class="fa fa-remove"></span> Xóa</a> 
+                            <a href="@Url.Action("TagsOfPost", new { id = item.PostID, page = ViewBag.Page })" data-toggle="tooltip" title="Bài viết có @item.Tags.Count đi kèm" class="btn btn-default btn-xs"><span class="fa fa-tags"></span> Tags (@item.Tags.Count)</a> 
+
+                        </td>
+                    </tr>
+                }
+                <tr >
+                    <td colspan="6" class="text-center">
+                        @Html.PagedListPager(Model, Page => Url.Action("Pager", new { page = Page, sortname = "id", sortby = "desc" }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayLinkToLastPage = PagedListDisplayMode.Always, DisplayLinkToFirstPage = PagedListDisplayMode.Always }, new AjaxOptions() { AllowCache = true, HttpMethod = "Get", OnFailure = "alert('Lỗi  ajax');", UpdateTargetId = "tbody", InsertionMode = InsertionMode.Replace }))
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="well">
+        <b>Bạn chưa có bài viết nào.</b>
+    </div>
+}

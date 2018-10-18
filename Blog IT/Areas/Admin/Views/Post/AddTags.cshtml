@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Thêm tag vào bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<h1>Thêm các tag vào bài viết <span class="text-info">"@ViewBag.TitleArticle"</span> </h1>
+<hr/>
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("PostID", (int)ViewBag.PostID)
+    @Html.Hidden("page",(int)ViewBag.Page)
+    @Html.ValidationSummary("",new { @class="text-danger"})
+        <div class="form-group">
+            <label> Chọn các tag muốn thêm: </label>
+             @Html.ListBox("TagID", null, new { @class="form-control",style="height:250px"})
+        </div>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit"> Thêm </button>
+        @Html.ActionLink("Về tags của bài", "TagsOfPost", new { id = ViewBag.PostID, page = ViewBag.Page }, new { @class="btn btn-default"})
+    </div>
+}
+

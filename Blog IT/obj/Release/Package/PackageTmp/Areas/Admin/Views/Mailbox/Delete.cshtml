@@ -1,0 +1,23 @@
+﻿@model Blog_IT.Models.Mailbox
+
+@{
+    ViewBag.Title = "Xóa thư";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Xóa thư số @Model.ID</h1>
+<hr/>
+
+<div class="text-center">
+        <h3>Bạn có chắc muốn thư này?</h3>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div>&nbsp;</div>
+            <div class="form-actions no-color">
+                <button type="submit" class="btn btn-danger"><span class="fa fa-remove"></span> Xóa</button>
+                @Html.ActionLink("Về danh sách", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+</div>
+

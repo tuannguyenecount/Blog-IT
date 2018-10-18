@@ -1,0 +1,131 @@
+﻿@model Blog_IT.Models.Post
+
+@{
+    ViewBag.Title = ViewBag.Message;
+    Layout = "~/Areas/Mod/Views/Shared/_ModLayout.cshtml";
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckfinder/ckfinder.js"></script>
+    <script>
+        CKEDITOR.replace('Body');
+        CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder")');
+        var _changeInterval = null;
+        CKEDITOR.instances['Body'].on('change', function () {
+            var body = CKEDITOR.instances['Body'].getData();
+            // wait untill user type in something
+            // Don't let call setInterval - clear it, user is still typing
+            clearInterval(_changeInterval)
+            _changeInterval = setInterval(function() {
+                $.ajax({
+                    url: '@Url.Action("SavePost")',
+                    method: "POST",
+                    cache:false,
+                    data: { "id": @Model.PostID, "body" : body},
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data.message);
+                        $("#alertSuccess").removeClass("hide");
+                        setTimeout(function(){
+                            $("#alertSuccess").addClass("hide");
+                        }, 2000);
+                    },
+                    error: function(data){
+                        console.log(data.message);
+                        $("#alertError").append(data.message);
+                    }
+                });
+                clearInterval(_changeInterval)
+            }, 2000);
+
+        });
+        $("#categoryid").change(function () {
+            $.ajax({
+                url: '@Url.Action("SelectSubCategory")',
+                method: "GET",
+                data: { "CategoryId": $(this).val() },
+                dataType: "json",
+                success: function (data) {
+                    if (Object.keys(data).length > 0) {
+                        $("#subcategoryid").removeAttr("readonly");
+                        $("#subcategoryid").html("");
+                        $.each(data, function (i, item) {
+                            $("#subcategoryid").append("<option value='" + item.ID + "'>" + item.Name + "</option>");
+                        });
+                    }
+                    else {
+                        $("#subcategoryid").attr("readonly", "");
+                        $("#subcategoryid").html("");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi ajax");
+                }
+            });
+        });
+    </script>
+}
+<div id="alertSuccess" class="alert-success hide" style="position:fixed;bottom:0px; right:10px;font-weight:bold">
+    <span class="glyphicon glyphicon-saved"></span> Đã lưu nội dung
+</div>
+<div id="alertError" class="alert-error hide" style="position:fixed;bottom:0px; right:10px;font-weight:bold">
+    <span class="glyphicon glyphicon-saved"></span>
+</div>
+<h1>@ViewBag.Title</h1>
+<hr />
+<form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => Model.PostID)
+    @Html.HiddenFor(m => Model.Image)
+    @Html.HiddenFor(m => Model.ImageOpenGraph)
+    @Html.HiddenFor(m => Model.DatePost)
+    @Html.HiddenFor(m => Model.DateModified)
+    @Html.HiddenFor(m => Model.Views)
+    @Html.Hidden("page", (int)ViewBag.Page)
+    <input type="hidden" name="titleOld" value="@Model.Title" />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title)
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Introduce)
+        @Html.TextAreaFor(model => model.Introduce, new { @class = "form-control", rows = "5" })
+        @Html.ValidationMessageFor(model => model.Introduce, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryID)
+        @Html.DropDownList("CategoryID", null, new { id = "categoryid", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SubCategoryID)
+        <div id="result">
+            @Html.DropDownList("SubCategoryID", null, new { id = "subcategoryid", @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label> @(Request.QueryString["create"] == null ? "Thay hình bìa" : "Chọn hình bìa" )</label>
+        <input type="file" name="file" /> <label class="text-info"><strong>(Resize hình về size ~ 355x200 trước khi upload)</strong></label>
+    </div>
+    <div class="form-group">
+        <label> @(Request.QueryString["create"] == null ? "Thay hình Open Graph FB" : "Chọn hình Open Graph FB" ) </label>
+        <input type="file" name="fileOpenGraph" /> <label class="text-info"><strong>(Resize hình về size ~ 600x315 trước khi upload)</strong></label>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Body)
+        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary"><span class="fa-save"></span>Lưu</button>
+        <a class="btn btn-default" href="@Url.Action("Demo","Post",new { alias = Model.Alias, area=""})" target="_blank"><i class="fa fa-eye"></i> Xem thử</a>
+
+        @Html.ActionLink("Về danh sách", "Index", new { page = ViewBag.Page }, new { @class = "btn btn-default" })
+    </div>
+</form>

@@ -1,0 +1,27 @@
+﻿@model Blog_IT.Models.AspNetUser
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Phân quyền";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Phân quyền</h1>
+<hr/>
+<p>
+    Các quyền hiện tại của thành viên @Model.FullName:
+</p>
+    @Html.Grid(Model.AspNetRoles.ToList()).Columns(columns =>
+{
+   columns.Add(m=>m.Id).Titled("Mã quyền");
+   columns.Add(m => m.Name).Titled("Tên quyền");
+   columns.Add().Encoded(false).Sanitized(false).RenderValueAs(m => Html.ActionLink("Gở bỏ", "RemoveRoleFromUser", new { userID = Model.Id, roleID = m.Id }).ToHtmlString() );
+})
+<p>
+    Thêm quyền cho thành viên:
+</p>
+@Html.Grid(ViewBag.lstRole as List<Blog_IT.Models.AspNetRole> ).Columns(columns =>
+{
+    columns.Add(m => m.Id).Titled("Mã quyền");
+    columns.Add(m => m.Name).Titled("Tên quyền");
+    columns.Add().Encoded(false).Sanitized(false).RenderValueAs(m => Html.ActionLink("Thêm quyền", "AddeRoleToUser", new { userID = Model.Id, roleID = m.Id }, new { @class="text-info"}).ToHtmlString());
+})

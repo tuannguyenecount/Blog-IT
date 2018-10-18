@@ -1,0 +1,250 @@
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Blog IT.dll.config
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Blog IT.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Blog IT.pdb
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Antlr3.Runtime.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\EntityFramework.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\EntityFramework.SqlServer.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Web.Infrastructure.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Newtonsoft.Json.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Owin.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Helpers.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Mvc.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Optimization.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Razor.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.WebPages.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\WebGrease.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Antlr3.Runtime.pdb
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Newtonsoft.Json.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Helpers.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Mvc.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Optimization.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.Razor.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.WebPages.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\EntityFramework.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\EntityFramework.SqlServer.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\obj\Debug\Blog IT.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\obj\Debug\Blog IT.pdb
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Blog IT.dll.config
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Blog IT.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Blog IT.pdb
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Antlr3.Runtime.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\EntityFramework.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\EntityFramework.SqlServer.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Web.Infrastructure.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Newtonsoft.Json.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Owin.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Helpers.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Mvc.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Optimization.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Razor.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.WebPages.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\WebGrease.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Antlr3.Runtime.pdb
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Newtonsoft.Json.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Helpers.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Mvc.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Optimization.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.Razor.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.WebPages.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\EntityFramework.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\EntityFramework.SqlServer.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\obj\Debug\Blog IT.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\obj\Debug\Blog IT.pdb
+D:\ASP.NETMVC\Blog IT\Blog IT\obj\Debug\Blog IT.csprojResolveAssemblyReference.cache
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\GridMvc.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\PagedList.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\PagedList.Mvc.dll
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\PagedList.xml
+D:\ASP.NETMVC\Blog IT\Blog IT\bin\PagedList.Mvc.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Blog IT.dll.config
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Blog IT.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Blog IT.pdb
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Antlr3.Runtime.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\EntityFramework.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\EntityFramework.SqlServer.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\GridMvc.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Web.Infrastructure.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Newtonsoft.Json.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Owin.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\PagedList.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\PagedList.Mvc.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Helpers.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Mvc.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Optimization.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Razor.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.WebPages.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\WebGrease.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Antlr3.Runtime.pdb
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Newtonsoft.Json.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\PagedList.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\PagedList.Mvc.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Helpers.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Mvc.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Optimization.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.Razor.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.WebPages.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\EntityFramework.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\EntityFramework.SqlServer.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\obj\Debug\Blog IT.csprojResolveAssemblyReference.cache
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\obj\Debug\Blog IT.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\Blog IT\obj\Debug\Blog IT.pdb
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Blog IT.dll.config
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Blog IT.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Blog IT.pdb
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Antlr3.Runtime.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\EntityFramework.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\EntityFramework.SqlServer.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\GridMvc.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.Core.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Web.Infrastructure.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Newtonsoft.Json.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Owin.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\PagedList.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\PagedList.Mvc.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Helpers.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Mvc.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Optimization.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Razor.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.WebPages.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\WebGrease.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Antlr3.Runtime.pdb
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.Core.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Newtonsoft.Json.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\PagedList.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\PagedList.Mvc.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Helpers.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Mvc.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Optimization.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.Razor.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.WebPages.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.WebPages.Deployment.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\System.Web.WebPages.Razor.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\EntityFramework.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\EntityFramework.SqlServer.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Core.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.Owin.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Host.SystemWeb.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Facebook.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Cookies.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.OAuth.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Google.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.Twitter.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+H:\ASPNET TONG HOP\Blog IT\Blog IT\obj\Debug\Blog IT.dll
+H:\ASPNET TONG HOP\Blog IT\Blog IT\obj\Debug\Blog IT.pdb
+H:\ASPNET TONG HOP\Blog IT\Blog IT\obj\Debug\Blog IT.csprojResolveAssemblyReference.cache
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\GridMvc.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\PagedList.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\PagedList.Mvc.dll
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\PagedList.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\bin\PagedList.Mvc.xml
+D:\ASP.NET MVC\Blog IT\Blog IT\obj\Debug\Blog IT.csprojAssemblyReference.cache
+D:\ASP.NET MVC\Blog IT\Blog IT\obj\Debug\Blog IT.csproj.CoreCompileInputs.cache
+D:\ASP.NET MVC\Blog IT\Blog IT\obj\Debug\Blog IT.csproj.CopyComplete

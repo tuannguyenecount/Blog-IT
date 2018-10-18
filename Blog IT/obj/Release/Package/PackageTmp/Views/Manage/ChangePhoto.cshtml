@@ -1,0 +1,67 @@
+﻿@model Blog_IT.Models.AspNetUser
+@{
+    ViewBag.Title = "Thay hình đại diện";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <div class="col-md-4 text-center">
+        <img src="~/Photos/Users/@Model.Image" width="150" height="150" class="img-circle" id="imageuser" />
+        <h1>
+            @Model.FullName
+        </h1>
+        <br/>
+            <form action="@Url.Action("ChangePhoto")" method="post" enctype="multipart/form-data">
+                @Html.ValidationMessage("customError", new {@class="text-danger" })
+                @Html.AntiForgeryToken()
+                    <input name="file" type="file" id="file" />
+                    <div>
+                        <br/>
+                        <button onclick="if (document.getElementById('file').value == '') { alert('Bạn chưa chọn hình!'); return false; }" type="submit" class="btn btn-default"><span class="fa fa-image"></span> Upload</button>
+                    </div>
+            </form>
+            @*<input style="display:none;" type="file" name="file" id="file" />
+        <button type="button" onclick="document.getElementById('file').click();"><span class="fa fa-image"></span> Thay hình</button>*@
+    </div>
+    <dl class="col-md-8">
+        <dt>@Html.DisplayNameFor(m => Model.FirstName):</dt>
+        <dd>
+            @Html.DisplayFor(m => Model.FirstName)
+        </dd>
+        <dt>@Html.DisplayNameFor(m => Model.LastName):</dt>
+        <dd>
+            @Html.DisplayFor(m => Model.LastName)
+        </dd>
+        <dt>@Html.DisplayNameFor(m => Model.Email):</dt>
+        <dd>
+            @Model.Email
+        </dd>
+        <dt>@Html.DisplayNameFor(m => Model.PhoneNumber):</dt>
+        <dd>
+            @Html.DisplayFor(m => Model.PhoneNumber)
+        </dd>
+        <dt>@Html.DisplayNameFor(m => Model.Introduce):</dt>
+        <dd>
+            @Html.DisplayFor(m => Model.Introduce)
+        </dd>
+        <dt>Mật khẩu:</dt>
+        <dd>
+            [
+            @if (Model.PasswordHash != null)
+            {
+                @Html.ActionLink("Đổi mật khẩu", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Tạo mật khẩu", "SetPassword")
+            }
+            ]
+        </dd>
+        </dl>
+</div>
+
+

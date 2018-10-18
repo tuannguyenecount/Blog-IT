@@ -1,0 +1,22 @@
+﻿<script src="~/Scripts/jquery.niftymodals.min.js"></script>
+<script>
+// this is important for IEs
+var polyfilter_scriptpath = 'lib/js/';
+</script>
+
+<script src="~/Scripts/cssParser.js"></script>
+<script src="~/Scripts/css-filters-polyfill.js"></script>
+<div class="md-container md-effect-11" id="modal">
+    <div class="md-content">
+        <h3>Bảng Tin</h3>
+        <div >
+            @Html.Raw(Model.Content)
+        </div>
+
+    </div>
+</div>
+<script>
+     setTimeout(function () {
+            $("#modal").niftyModal();
+        }, @Model.Timeout);
+</script>

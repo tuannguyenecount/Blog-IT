@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Blog_IT.Models.MailSubscribe>
+@{
+    ViewBag.Title = "Danh sách email nhận đăng ký";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@section scripts{
+    <script>
+        function XoaEmail(lbl, email){
+            if(confirm("Bạn có chắc muốn xóa email " + email + " khỏi danh sách email theo dõi?")){
+                $.post("@Url.Action("Delete",new { area="Admin"})", { Email: email }, function (statusCode) {
+                if (statusCode == 1) {
+                    lbl.remove();
+                }
+                else {
+                    alert("Lỗi ajax!");
+                }
+            });
+           }
+        }
+    </script>
+    }
+<div class="clearfix">
+    <a class="btn btn-default" href="@Url.Action("Download")"><i class="fa-download"></i>Tải danh sách email</a>
+    <p class="text-info margin-top-20">
+        <strong>Click vào Email bạn muốn xóa để xóa Email đó ra khỏi danh sách Email theo dõi</strong>
+    </p>
+</div>
+<hr/>
+<div class="margin-top-20">
+    @foreach(var item in Model)
+    {
+        <label onclick="XoaEmail(this,'@Html.Encode(item.Email)')"  class="blog-tag" data-toggle="tooltip" title="Tên: @item.FullName, ngày đăng ký @item.DateSubscribe" >@item.Email &nbsp;</label>
+       
+    }
+</div>
+
+

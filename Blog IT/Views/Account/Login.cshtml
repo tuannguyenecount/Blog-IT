@@ -1,0 +1,55 @@
+﻿@using Blog_IT.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Đăng nhập";
+}
+
+<!-- Login Box -->
+<div class="col-md-4 col-md-offset-4">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-page", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="login-header margin-bottom-30">
+            <h2>Đăng nhập</h2>
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+            </span>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+            </span>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Mật khẩu" })
+        </div>
+        <div class="row">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="checkbox">
+                   
+                   Ghi nhớ: @Html.CheckBoxFor(m=>m.RememberMe, new { style="margin-left:10px"})
+                </label>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary pull-right" type="submit">Đăng nhập</button>
+            </div>
+        </div>
+        <hr>
+        <h4>Quên mật khẩu ?</h4>
+        <p>
+            <a href="@Url.Action("ForgotPassword")">Click vào đây </a> để thực hiện lấy lại mật khẩu.
+        </p>
+    }
+        @*<section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>*@
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

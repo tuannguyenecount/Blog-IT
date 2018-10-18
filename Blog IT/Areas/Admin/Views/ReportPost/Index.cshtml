@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNet.Identity;
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Blog_IT.Models.ReportPost>
+@{
+    ViewBag.Title = "Danh sách bài viết bị báo vi phạm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<a href="@Url.Action("Index", "Post", new { area = "Admin" })" class="text-info">Danh sách bài viết</a> |
+<a href="@Url.Action("FilterByUser", "Post", new { area = "Admin", UserID = User.Identity.GetUserId() })" class="text-info">Bài viết của tôi</a> |
+<a href="@Url.Action("Index","ReportPost")" class="text-info">Bài viết bị báo vi phạm</a>
+<div class="col-md-12 bg-title bg-title-red">
+    <h1>@ViewBag.Title  </h1>
+</div>
+@if (Model.Count() > 0)
+{
+    <div class="table-responsive" style="clear:both" id="tbl">
+        <table class="table table-bordered">
+            <thead class="grid-header" @*style="background:#d02828;color:#fff;"*@>
+                <tr>
+                    <td>
+                        Bài viết
+                    </td>
+                    <td>
+                        Email
+                    </td>
+                    <td>
+                        Nội dung
+                    </td>
+                    <td>
+                        Ngày báo
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a class="text-info" target="_blank" href="@Url.Action("Detail","Post", new {area="", id = item.PostID, alias = item.Post.Alias })">@item.Post.Title</a>
+                        </td>
+                        <td>
+                            @item.Email
+                        </td>
+                        <td>
+                            @item.Content
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.DateReport)
+                        </td>
+                        <td>
+                            <a class="btn btn-success btn-sm" data-toggle="tooltip" title="Giữ bài viết bằng cách xóa đơn báo sai phạm này" href="@Url.Action("Delete", new { id = item.Id,page = Url.RequestContext.RouteData.Values["page"]})">Giữ bài viết</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger btn-sm"  href="@Url.Action("Delete", "Post", new { area="Admin", id = item.PostID})">Xóa bài viết</a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="6" class="text-center">
+                        @Html.PagedListPager(Model, page => Url.Action("PostsReported", new { page = page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.Always})
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="well">
+        Không có bài viết bị báo sai phạm.
+    </div>
+}
+

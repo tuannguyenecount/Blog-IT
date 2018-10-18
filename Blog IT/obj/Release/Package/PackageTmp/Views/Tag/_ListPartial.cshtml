@@ -1,0 +1,11 @@
+﻿<div class="blog-tags">
+    <h3>Tags</h3>
+    <ul class="blog-tags">
+        @foreach(var tag in Model)
+        { 
+        <li>
+            <a href="@Url.Action("Index", "Tag", new { id = tag.TagID, alias = tag.Alias, area=""})" class="blog-tag">@tag.Name</a>
+        </li>
+        }
+    </ul>
+</div>

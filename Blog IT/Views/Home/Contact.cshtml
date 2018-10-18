@@ -1,0 +1,62 @@
+﻿@model Blog_IT.Models.Mailbox
+@{
+    ViewBag.Title = "Gửi thư phản hồi";
+    Layout = "~/Views/Shared/_LayoutSidebar.cshtml";
+}
+@section scripts{
+  @Scripts.Render("~/bundles/jqueryval")
+}
+  <!-- Main Column -->
+<div class="col-md-8">
+    <!-- Main Content -->
+    <div class="headline">
+        <h2>Form phản hồi</h2>
+    </div>
+    <p>
+       Bạn muốn góp ý, khiếu nại, thắc mắc, v.vv về website của chúng tôi. Rất đơn giản bạn chỉ việc điền thông tin vào form bên dưới và nhấn nút Gửi.
+       Chúng tôi sẽ liên hệ lại với bạn thông qua email của bạn sớm nhất có thể ngay khi nhận được thông tin.
+    </p>
+    <br>
+    <!-- Contact Form -->
+    @using(Html.BeginForm())
+    {
+        @Html.LabelFor(m=>m.Name)
+        @Html.ValidationSummary(true, "", new { @class="text-danger"})
+        @Html.AntiForgeryToken()
+        <div class="row margin-bottom-20">
+            <div class="col-md-6 col-md-offset-0">
+                @Html.TextBoxFor(m => m.Name, new {@class="form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class="text-danger"})
+            </div>
+        </div>
+        <label>
+            @Html.LabelFor(m => m.Email)
+            
+        </label>
+        <div class="row margin-bottom-20">
+            <div class="col-md-6 col-md-offset-0">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.LabelFor(m => m.Message)
+        <div class="row margin-bottom-20">
+            <div class="col-md-8 col-md-offset-0">
+                @Html.TextAreaFor(m => m.Message, new {rows="8", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <p>
+            <button type="submit" class="btn btn-primary">Gửi</button>
+        </p>
+        if(ViewBag.MessageSuccess != null)
+        { 
+        <div class="alert alert-success">
+            <b>@ViewBag.MessageSuccess</b>
+        </div>
+        }
+    }
+    <!-- End Contact Form -->
+    <!-- End Main Content -->
+</div>
+<!-- End Main Column -->

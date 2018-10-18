@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Title -->
+    <title>Quản trị - @ViewBag.Title</title>
+    <!-- Meta -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="none" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Favicon -->
+    <link href="favicon.ico" rel="shortcut icon">
+    @Styles.Render("~/Content/css")
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+    <style>
+        .menu-admin {
+            list-style-type: none;
+            padding-left: 0px;
+        }
+
+            .menu-admin li {
+                margin: 10px 0;
+            }
+
+        dt {
+            padding: 15px 0px;
+        }
+    </style>
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div id="body_bg">
+        <div id="pre_header" class="container">
+            <div class="row margin-top-10 visible-lg">
+               
+            </div>
+        </div>
+        <div class="primary-container-group">
+            <!-- Background -->
+            <div class="primary-container-background">
+                <div class="primary-container"></div>
+                <div class="clearfix"></div>
+            </div>
+            <!--End Background -->
+            <div class="primary-container">
+                <div id="header" class="container">
+                    <div class="row">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="@Url.Action("Index", "Home", new { area=""})" title="">
+                                <img src="~/Images/logo.png" alt="Logo" />
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                        <ul class="social-icons pull-right hidden-xs">
+                            <li class="social-rss">
+                                <a href="#" target="_blank" title="RSS"></a>
+                            </li>
+                            <li class="social-twitter">
+                                <a href="#" target="_blank" title="Twitter"></a>
+                            </li>
+                            <li class="social-facebook">
+                                <a href="#" target="_blank" title="Facebook"></a>
+                            </li>
+                            <li class="social-googleplus">
+                                <a href="#" target="_blank" title="GooglePlus"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Top Menu -->
+               @* @Html.Action("_TopMenuPartial", "Home", new { area=""})*@
+                <!-- End Top Menu -->
+                <!-- === END HEADER === -->
+                <!-- === BEGIN CONTENT === -->
+                <div id="content">
+                    <div class="container">
+                        <div class="row margin-vert-30">
+                            <!-- Side Column -->
+                            <div class="col-md-3" id="sideColumn">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Admin</h3>
+                                       
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="margin-top-10 menu-admin">
+                                            <li>
+                                                <a data-toggle="tooltip" title="Thông báo các sự kiện mới nhất của blog" href="@Url.Action("Index", "Home", new { area = "Admin" })"><span class="fa-bullhorn"></span> Thông báo</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Create", "Post")"><span class="fa-plus"></span> Tạo bài viết mới</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tooltip" title="Thực hiện việc quản lý các bài viết trên blog" href="@Url.Action("Index", "Post", new { area = "Admin" })"><span class="fa-file-text-o"></span> Quản trị bài viết</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tooltip" title="Thêm, xóa, sửa danh sách tag của blog" href="@Url.Action("Index", "Tag", new { area = "Admin" })"><span class="fa-tags"></span> Danh sách tags</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tooltip" title="Xóa, sửa thông tin, phân quyền, tìm kiếm thành viên" href="@Url.Action("Index", "User", new { area = "Admin" })"><span class="fa-users"></span> Quản trị thành viên</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tooltip" title="Xem các thư được gửi từ người dùng" href="@Url.Action("Index", "Mailbox", new { area = "Admin" })"><span class="fa-envelope"></span> Hộp thư</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tooltip" title="Xem danh sách email nhận tin" href="@Url.Action("Index","MailSubscribe",new { area="Admin"})"><span class="fa-inbox"></span> Email nhận tin</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tooltip" title="Xem - sửa popup" href="@Url.Action("Index", "Popup", new { area = "Admin" })"><span class="fa-windows"></span> Popup</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Index", "Manage", new { area = "" })"><span class="fa-user"></span> Về trang cá nhân</a>
+                                            </li>
+                                            <li class="text-center">
+                                                <hr/>
+                                                <button id="btnHiddenToolbar" type="button" class="btn btn-primary btn-sm"> Ẩn toolbar</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Side Column -->
+                            <!-- Main Column -->
+                            <div class="col-md-9" id="mainColumn">
+                                <button id="btnShowToolbar" style="display:none;" type="button" class="btn btn-primary btn-sm"> Hiện toolbar</button>
+                                @RenderBody()
+                            </div>
+                            <!-- End Main Column -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- === END CONTENT === -->
+        <!-- === BEGIN FOOTER === -->
+        @Html.Partial("_FooterPartial", new { area = "" })
+    </div>
+    <!-- End Footer Menu -->
+    <!-- JS -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/scripts.js"></script>
+    <!-- Isotope - Portfolio Sorting -->
+    <script src="~/Scripts/jquery.isotope.js"></script>
+    <!-- Mobile Menu - Slicknav -->
+    <script src="~/Scripts/jquery.slicknav.js"></script>
+    <!-- Animate on Scroll-->
+
+    <script src="~/Scripts/jquery.visible.js"></script>
+    <!-- Sticky Div -->
+    <script src="~/Scripts/jquery.sticky.js"></script>
+    <!-- Slimbox2-->
+
+    <script src="~/Scripts/slimbox2.js"></script>
+    <!-- Modernizr -->
+    <script src="~/Scripts/modernizr.custom.js"></script>
+    <!-- End JS -->
+    <script>
+        $(function () {
+            $("#btnHiddenToolbar").click(function () {
+                $("#sideColumn").hide();
+                $("#mainColumn").attr("class", "col-md-12");
+                $("#btnShowToolbar").attr("style", "display:normal");
+            });
+            $("#btnShowToolbar").click(function () {
+                $("#sideColumn").show();
+                $("#mainColumn").attr("class", "col-md-9");
+                $("#btnShowToolbar").attr("style", "display:none");
+            });
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>
+
+

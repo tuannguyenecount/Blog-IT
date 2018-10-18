@@ -1,0 +1,120 @@
+﻿@model Blog_IT.Models.Post
+
+@{
+    ViewBag.Title = "Thêm bài viết";
+    Layout = "~/Areas/Mod/Views/Shared/_ModLayout.cshtml";
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckfinder/ckfinder.js"></script>
+    <script>
+        CKEDITOR.replace('Body');
+        CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder")');
+      
+        $("#categoryid").change(function () {
+            $.ajax({
+                url: '@Url.Action("SelectSubCategory")',
+                method: "GET",
+                data: { "CategoryId": $(this).val() },
+                dataType: "json",
+                success: function (data) {
+                    if (Object.keys(data).length > 0) {
+                        $("#subcategoryid").removeAttr("readonly");
+                        $("#subcategoryid").html("");
+                        $.each(data, function (i, item) {
+                            $("#subcategoryid").append("<option value='" + item.ID + "'>" + item.Name + "</option>");
+                        });
+                    }
+                    else {
+                        $("#subcategoryid").attr("readonly", "");
+                        $("#subcategoryid").html("");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi ajax");
+                }
+            });
+        });
+    </script>
+}
+<div id="alertSuccess" class="alert-success hide" style="position:fixed;bottom:0px; right:10px;font-weight:bold">
+    <span class="glyphicon glyphicon-saved"></span> Đã lưu nội dung
+</div>
+<div id="alertError" class="alert-error hide" style="position:fixed;bottom:0px; right:10px;font-weight:bold">
+    <span class="glyphicon glyphicon-saved"></span>
+</div>
+<h1>@ViewBag.Title</h1>
+<hr />
+<p class="text-info small">
+    Hiện tại chức năng Auto Save chỉ được bổ sung cho chức năng <b>edit</b> bài viết. Vì vậy để tránh sự cố xảy ra khi bạn đang viết
+    bài như máy bị restart, cúp điện, ... khiến nội dung viết bị mất mà chưa kịp lưu thì bạn hãy nhập 1 ít nội dung và thực hiện <b>create</b> ngay và sau đó sử dụng <b>edit</b> để viết bài với chế độ Auto Save nhé.
+</p>
+<form action="@Url.Action("Create")" method="post" enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Introduce, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Introduce, new { @class = "form-control", rows = "5" })
+                @Html.ValidationMessageFor(model => model.Introduce, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CategoryID", null, new { id = "categoryid", @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubCategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SubCategoryID", null, new { id = "subcategoryid", @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="file" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Thêm tag:</label>
+            <div class="col-md-10">
+                @Html.ListBox("TagID", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success"><span class="fa-check"></span> Thêm</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Về danh sách", "Index")
+</div>
+
